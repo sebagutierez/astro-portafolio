@@ -1,0 +1,35 @@
+---
+import Menu from "../components/Menu.astro"
+import TitlePage from "../components/TitlePage.astro"
+import CardService from "../components/CardService.astro"
+import { findPathItemByKey } from "astro/dist/core/render/route-cache"
+
+const services = [
+  {
+    titulo: "Web Development",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, eius! Dolores itaque eligendi tempore laudantium! Numquam deleniti beatae cum vitae sapiente nihil quas inventore? Necessitatibus dolorem nostrum tenetur facilis velit?",
+  },
+  {
+    titulo: "Mobile Development",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, eius! Dolores itaque eligendi tempore laudantium! Numquam deleniti beatae cum vitae sapiente nihil quas inventore? Necessitatibus dolorem nostrum tenetur facilis velit?",
+  },
+  {
+    titulo: "Consulting",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, eius! Dolores itaque eligendi tempore laudantium! Numquam deleniti beatae cum vitae sapiente nihil quas inventore? Necessitatibus dolorem nostrum tenetur facilis velit?",
+  },
+]
+---
+
+<Menu />
+<section class="bg-gray-200 pt-20 pb-28 px-8">
+  <div class="max-w-6xl mx-auto">
+    <TitlePage title="Services" subtitle="How can I help you?" />
+    <div class="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+      {
+        services.map((item) => (
+          <CardService title={item.titulo} desc={item.desc} />
+        ))
+      }
+    </div>
+  </div>
+</section>
